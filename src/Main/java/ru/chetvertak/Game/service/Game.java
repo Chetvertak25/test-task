@@ -1,55 +1,18 @@
-package Test2;
+package Main.java.ru.chetvertak.Game.service;
+
+import Main.java.ru.chetvertak.Game.model.TreeNode;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-/*
-Игра "Угадай животное", использующая структуру данных - двоичное дерево.
-*/
-class TreeNode {
-    private String question;      // Вопрос
-    private TreeNode yesNode;     // Узел ответа да
-    private TreeNode noNode;      // Узел ответа нет
-
-    public TreeNode(String question) {
-        this.question = question;
-        this.yesNode = null;
-        this.noNode = null;
-    }
-
-    public String getQuestion() {
-        return question;
-    }
-
-    public void setQuestion(String question) {
-        this.question = question;
-    }
-
-    public TreeNode getYesNode() {
-        return yesNode;
-    }
-
-    public void setYesNode(TreeNode yesNode) {
-        this.yesNode = yesNode;
-    }
-
-    public TreeNode getNoNode() {
-        return noNode;
-    }
-
-    public void setNoNode(TreeNode noNode) {
-        this.noNode = noNode;
-    }
-}
-
 public class Game {
-    private TreeNode rootNode;                   // Корневой узел
-
+    private TreeNode rootNode;                 // Корневой узел
+    private final BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));       // Чтение с консоли
     public Game() {
         knowledgeBase();
     }
 
-    private void knowledgeBase() {                                                     // Начальная база знаний
+    private void knowledgeBase() {                                               // Начальная база знаний
         TreeNode questionNode = new TreeNode("Живет на суше?");
         TreeNode catNode = new TreeNode("кот");
         TreeNode whaleNode = new TreeNode("кит");
@@ -60,10 +23,8 @@ public class Game {
     }
 
     public void play() throws Exception {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));       // Чтение с консоли
 
         // Главный цикл, повторяющий игру, пока игрок хочет играть
-
         do {
             TreeNode currentNode = rootNode;
 
@@ -80,7 +41,6 @@ public class Game {
                 }
             }
             // Если уточняющие вопросы закончились, есть предпологаемое загаданное животное
-
             if (currentNode.getYesNode() == null && currentNode.getNoNode() == null) {
                 System.out.print("Это " + currentNode.getQuestion() + "? (да/нет) ");
                 String finalAnswer = reader.readLine();
@@ -90,7 +50,6 @@ public class Game {
                 }
 
                 // Если животное не угадано, в базе знаний появляется нвоое животное и его отличительная часть
-
                 if (finalAnswer.equalsIgnoreCase("нет")) {
                     System.out.print("Какое животное ты загадал? ");
                     String animal = reader.readLine().toLowerCase();
@@ -122,9 +81,7 @@ public class Game {
         reader.close();
     }
 
-    public static void main(String[] args) throws Exception {
-        System.out.println("Загадай животное, а я попробую угадать...");
-        Game game = new Game();
-        game.play();
-    }
+
+
+
 }
