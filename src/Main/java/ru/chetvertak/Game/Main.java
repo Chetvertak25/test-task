@@ -1,4 +1,6 @@
-package JavaGame;
+package src.main.java.ru.chetvertak.Game;
+
+import src.main.java.ru.chetvertak.Game.service.Game;
 
 public class Main {
     /*
