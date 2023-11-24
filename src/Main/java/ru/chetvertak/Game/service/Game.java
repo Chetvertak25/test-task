@@ -1,6 +1,6 @@
-package Main.java.ru.chetvertak.Game.service;
+package src.main.java.ru.chetvertak.Game.service;
 
-import Main.java.ru.chetvertak.Game.model.TreeNode;
+import src.main.java.ru.chetvertak.Game.model.TreeNode;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
