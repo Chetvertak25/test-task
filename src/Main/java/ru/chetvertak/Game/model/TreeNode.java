@@ -1,6 +1,6 @@
-package JavaGame;
+package src.main.java.ru.chetvertak.Game.model;
 
-class TreeNode {
+public class TreeNode {
     private String question;      // Вопрос
     private TreeNode yesNode;     // Узел ответа да
     private TreeNode noNode;      // Узел ответа нет
